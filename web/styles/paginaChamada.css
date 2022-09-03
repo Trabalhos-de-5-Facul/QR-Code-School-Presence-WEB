@@ -1,0 +1,320 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+
+.MainContainer {
+    background: linear-gradient(to right,#c6c5dd, #e5e6f0);
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    align-content: center;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 8;
+}
+
+.LoginContainer {
+    background-color: rgb(255, 255, 255);
+    width: 40%;
+    height: 86%;
+    border-radius: 15px;
+    box-shadow: 25px;
+    text-align: center;
+    z-index:10;
+}
+
+.LoginContainer h1 {
+
+    text-align: center;
+    padding-top: 15px;
+}
+
+.ChamadaContainer {
+    
+    margin-top: 32%;
+    z-index:10;
+}
+
+.Circle1{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 24%;
+    bottom: 0%;
+    background-color: #687ebb;
+    border-radius: 50%;
+    opacity: 0.3;
+    transition: 500ms ease-in-out;
+}
+
+.Circle2{
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    left: 20%;
+    top: 1%;
+    background-color: #687ebb;
+    border-radius: 50%;
+    opacity: 0.3;
+    transition: 500ms ease-in-out;
+}
+
+.Circle3{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 22%;
+    right: 18%;
+    background-color: #687ebb;
+    border-radius: 50%;
+    opacity: 0.3;
+
+}
+
+.Circle4{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    right: 3%;
+    bottom: 1%;
+    background-color: #687ebb;
+    border-radius: 50%;
+    opacity: 0.3;
+    transition: 500ms ease-in-out;
+}
+
+.Circle5{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 40%;
+    right: 28%;
+    background-color: #687ebb;
+    border-radius: 50%;
+    opacity: 0.9;
+    -webkit-mask-image: radial-gradient(circle, transparent 48%, black 41%);
+    object-fit: cover;
+}
+
+.Line1 {
+    position: absolute;
+    height: 60px;
+    width: 450px;
+    left: 14%;
+    top: 35%;
+    background: #d98a4a;
+    border-radius: 30px;
+    opacity: 0.9;
+    transform: rotate(-45deg);
+  }
+  
+.Line2 {
+    position: absolute;
+    height: 50px;
+    width: 220px;
+    left: 1%;
+    top: 82%;
+    background: #d98a4a;
+    border-radius: 30px;
+    opacity: 0.9;
+    transform: rotate(-45deg);
+}
+
+.Line3 {
+    position: absolute;
+    height: 50px;
+    width: 250px;
+    left: 0%;
+    top: 50%;
+    background: #dad8ff;
+    border-radius: 30px;
+    opacity: 0.9;
+    transform: rotate(-45deg);
+}
+
+.Line3-s {
+    position: absolute;
+    height: 52px;
+    width: 250px;
+    left: -6.25%;
+    top: 50%;
+    background: #ffffff;
+    border-radius: 30px;
+    opacity: 0.9;
+    transform: rotate(90deg);
+}
+
+.Line4 {
+    position: absolute;
+    height: 25px;
+    width: 125px;
+    left: 27%;
+    top: 56%;
+    background: #dad8ff;
+    border-radius: 30px;
+    opacity: 0.9;
+    transform: rotate(-45deg);
+}
+
+.Line5 {
+    position: absolute;
+    height: 50px;
+    width: 220px;
+    right: 29.2%;
+    top: 82%;
+    background: #d98a4a;
+    border-radius: 30px;
+    opacity: 0.9;
+    transform: rotate(-45deg);
+}
+
+.Line6 {
+    position: absolute;
+    height: 28px;
+    width: 140px;
+    right: 17%;
+    top: 70%;
+    background: #d98a4a;
+    border-radius: 30px;
+    opacity: 0.9;
+    transform: rotate(-45deg);
+}
+
+.Line7 {
+    position: absolute;
+    height: 28px;
+    width: 140px;
+    right: 1%;
+    top: 40%;
+    background: #dad8ff;
+    border-radius: 30px;
+    opacity: 0.9;
+    transform: rotate(-45deg);
+}
+
+.Line7-s {
+    position: absolute;
+    height: 40px;
+    width: 140px;
+    right: -1.74%;
+    top: 40%;
+    background: #ffffff;
+    border-radius: 30px;
+    opacity: 0.9;
+    transform: rotate(90deg);
+}
+
+.Line8 {
+    position: absolute;
+    height: 46px;
+    width: 220px;
+    right: 13%;
+    top: 17%;
+    background: #d98a4a;
+    border-radius: 30px;
+    opacity: 0.9;
+    transform: rotate(-45deg);
+}
+
+.Line9 {
+    position: absolute;
+    height: 28px;
+    width: 140px;
+    left: 6%;
+    top: 6%;
+    background: #dad8ff;
+    border-radius: 30px;
+    opacity: 0.9;
+    transform: rotate(-45deg);
+}
+
+.Line9-s {
+    position: absolute;
+    height: 30px;
+    width: 140px;
+    left: 6%;
+    top: 0%;
+    background: #ffffff;
+    border-radius: 30px;
+    opacity: 0.9;
+}
+
+.botaoChamada {
+    color: white;
+    width: 30%;
+    height: 80px;
+    background-color: #4066f0;
+    border-radius: 5px;
+    border: none;
+}
+
+.botaoChamada2 {
+    color: white;
+    width: 30%;
+    height: 80px;
+    background-color: #4066f0;
+    border-radius: 5px;
+    border: none;
+}
+
+.botaoChamada:hover, .botaoChamada2:hover {
+    background-color: #0f43ff;
+    cursor: pointer;
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.botaoChamada3 {
+    color: white;
+    width: 50%;
+    height: 60px;
+    margin-top: 1%;
+    background-color: #d98a4a;
+    border-radius: 5px;
+    border: none;
+}
+
+.botaoChamada3:hover {
+    background-color: #eb7b1f;
+    cursor: pointer;
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #d98a4a 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.botaoLogin {
+    color: white;
+    width: 70%;
+    margin-top: 50px;
+    background-color: #4066f0;
+    border-radius: 5px;
+    border: none;
+}
+
+.botaoLogin:hover {
+    background-color: #0f43ff;
+    cursor: pointer;
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+.mensagemLogado{
+    margin-top: 10%;
+    display:flex;
+    justify-content: center;
+}
+
+th{
+    font-size: x-large;
+}
+td{
+    font-size: larger;
+}
