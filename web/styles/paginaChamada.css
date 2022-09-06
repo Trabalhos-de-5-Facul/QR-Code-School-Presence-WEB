@@ -6,17 +6,67 @@ body, html{
     position: absolute;
 }
 
+header {
+    width: 100%;
+    height: 20px;
+    align-items: center;
+    border: 1px solid darkblue;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    z-index: 999;
+}
+
+.HeaderLeft {
+    float: left;
+    text-align: center;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.HeaderRight {
+    float: right;
+    margin-right: 12.5%;
+    display: flex;
+    flex-direction: row;
+}
+
+.Picture {
+    position: absolute;
+    right: 8%;
+    top: 2%;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.HeaderInfo {
+    position: absolute;
+    right: 2.5%;
+    top: 2%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.Info {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+}
+
+.HeaderIcon {
+    position: absolute;
+    right: 1.2%;
+    top: 6%;
+}
+
+.HeaderIcon i:hover {
+    cursor: pointer;
+}
 
 .MainContainer {
     background: linear-gradient(to right,#c6c5dd, #e5e6f0);
-    width: 90%;
-    height: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 30px;
-    margin-bottom: 20px;
     align-content: center;
-    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,23 +76,18 @@ body, html{
 .LoginContainer {
     background-color: rgb(255, 255, 255);
     width: 40%;
-    height: 86%;
     border-radius: 15px;
-    box-shadow: 25px;
     text-align: center;
     z-index:10;
 }
 
-.LoginContainer h1 {
-
-    text-align: center;
-    padding-top: 15px;
+.LoginContainer th {
+    font-size: 20px;
 }
 
-.ChamadaContainer {
-    
-    margin-top: 32%;
-    z-index:10;
+.LoginContainer img {
+    width: 65%;
+    height: 65%;
 }
 
 .Circle1{

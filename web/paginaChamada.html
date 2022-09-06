@@ -5,10 +5,27 @@
         <title>Chamada</title>
         <link rel="stylesheet" type="text/css" href="styles/paginaChamada.css">
         <script type="text/javascript" src="scripts/paginaChamada.js"></script>
+        <script src="https://kit.fontawesome.com/a43d9416c1.js" crossorigin="anonymous"></script>
         
     </head>
     <body>
+        <header>
+            <div class="HeaderLeft"><a href="login.html">LOGO</a></div>
+            <div class="HeaderLeft">Área do Professor</div>
+            <div class="HeaderRight">
+                <a href="#">Disciplinas</a>
+                <img src="assets/img/xastre.png" class="Picture"></img>
+                <div class="HeaderInfo">
+                    <div class="Info">Xastre</div>
+                    <div class="Info">18006568</div>
+                </div>
+                <div class="HeaderIcon">
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+            </div>
+        </header>
         <div class="MainContainer">
+            <!--
             <div class="Circle1"></div>
             <div class="Circle2"></div>
             <div class="Circle3"></div>
@@ -26,7 +43,7 @@
             <div class="Line8"></div>
             <div class="Line9"></div>
             <div class="Line9-s"></div>
-            
+            -->
             <div class="LoginContainer">
                 <div class="mensagemLogado">
                     <table>
@@ -47,20 +64,8 @@
                         </tr> 
                     </table>
                 </div>
+                <img src="assets/img/qrcode.png">
                 
-                <div class="ChamadaContainer">
-                    <button class="botaoChamada" id="botaoLogin" >
-                        <p>Chamada por QrCode</p>
-                    </button>
-
-                    <button class="botaoChamada2" id="botaoLogin" >
-                        <p>Chamada por lista</p>
-                    </button>
-
-                    <button class="botaoChamada3" id="botaoLogin" onclick=getJogos()>
-                        <p>Acessar outras materias</p>
-                    </button>
-                </div>  
             </div> 
         </div>
     </body>
