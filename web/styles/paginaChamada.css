@@ -310,6 +310,18 @@ nav ul{
 th{
     font-size: x-large;
 }
+
 td{
     font-size: larger;
+}
+
+#qrcode-container{
+    z-index: 10;
+}
+
+.qrcode{
+  padding: 16px;
+}
+.qrcode img{
+  margin: 0 auto;
 }

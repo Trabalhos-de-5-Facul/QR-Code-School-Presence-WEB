@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="styles/paginaChamada.css">
         <script type="text/javascript" src="scripts/paginaChamada.js"></script>
         <script src="https://kit.fontawesome.com/a43d9416c1.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
         
     </head>
     <body>
@@ -101,7 +102,13 @@
                         </tr> 
                     </table>
                 </div>
-                <img src="assets/img/qrcode.png">
+                <div id="qrcode-container">
+                    <div class="qrcode" id="qrcode"></div>
+                </div>
+                <button type="button" onclick="generateQRCode()">
+                    Generate QR Code
+                  </button>
+              
                 
             </div>
             <div class="list"></div> 
