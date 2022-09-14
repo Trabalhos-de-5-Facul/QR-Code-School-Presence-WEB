@@ -1,5 +1,11 @@
-//Função de Teste de Requisição para a API
+//declaração de variaveis
 var showing = false;
+var interval;
+const qrcode = document.createElement("div");
+qrcode.className = "qrcode";
+qrcode.id = "qrcode";
+
+//Função de Teste de Requisição para a API
 async function getJogos() {
   const response = await fetch("http://54.94.139.104:3000/jogos", {
     method: "GET",
@@ -13,18 +19,15 @@ function removeElement(id) {
   var elem = document.getElementById(id);
   return elem.parentNode.removeChild(elem);
 }
-var interval;
-const qrcode = document.createElement("div");
-qrcode.className = "qrcode";
-qrcode.id = "qrcode";
 function generateQRCode(){
   if(!showing){
     let D = new Date();
-    let t = D.getTime();
-    console.log(t);
-   
-    new QRCode(document.getElementById("qrcode"), "{COD_AULA: 312451,inicio_aula: 314145, fim_aula: 2153413, timestamp_atual:" + t + "}");
-    generatetime = t;
+    new QRCode(document.getElementById("qrcode"), JSON.stringify({
+      COD_AULA: 312415,
+      inicio_aula: 1687513,
+      fim_aula:124151251,
+      timestamp_atual: D.getTime()
+    }));
     showing = true;
   // Atualiza o qrcode a cada 10 segundos  
   interval = setInterval(RefreshQRCode,10000);
