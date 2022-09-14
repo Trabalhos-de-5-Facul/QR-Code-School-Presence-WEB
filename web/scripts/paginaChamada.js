@@ -1,9 +1,6 @@
 //declaração de variaveis
 var showing = false;
 var interval;
-const qrcode = document.createElement("div");
-qrcode.className = "qrcode";
-qrcode.id = "qrcode";
 
 //Função de Teste de Requisição para a API
 async function getJogos() {

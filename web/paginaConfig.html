@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Chamada</title>
+        <link rel="stylesheet" type="text/css" href="styles/paginaConfig.css">
+        <link rel="stylesheet" type="text/css" href="styles/header.css">
+        <script type="text/javascript" src="scripts/paginaConfig.js"></script>
+        <script src="https://kit.fontawesome.com/a43d9416c1.js" crossorigin="anonymous"></script>
+        
+    </head>
+    <body>
+        <div class="header">
+            <div class="left-header">
+                <div class="logo-container">
+                    <h1 ><a  href = "/web/paginaChamada.html">MEU<span>SITE</span></a></h1>
+                    <img src="assets/img/logo_chamada.png" class="picture_2"></img>
+                </div>
+            </div>
+            <div class="right-header">
+                <ul class="navigation">
+                    <li><a href="/web/paginaDisciplinas.html">Disciplinas</a></li>
+                </ul>
+                <div class="picture-container">
+                    <img src="assets/img/xastre.png" class="picture"></img>
+                </div>
+                <div class="info-container">
+                    <div class="info">Xastre</div>
+                    <div class="info">40028922</div>
+                </div>
+                <div class="icon-container">
+                    <nav>
+                    <input class="fa-solid fa-caret-down" id="toggle" type="checkbox" checked>
+                    </input>
+                    <ul>
+                        <li><a href="/web/paginaConfig.html"><div class="dropdown-item-div">Configurações de Conta</div></a></li>
+                        <li><a href="/web/login.html"><div class="dropdown-item-div" href= "/web/login.html">Sair</div></a></li>
+
+                    </ul>
+                </nav>
+                </div>
+            </div>
+        </div>
+        <div class="MainContainer">
+
+            <div class="max-width">
+                <div class="imageContainer">
+                    <img src="assets/img/camera.png" alt="Selecione uma imagem" id="imgPhoto">
+                </div>
+                <input type="file" id="flImage" name="fImage" accept="image/*">
+            </div>
+        
+            
+
+            <div>
+            <div class="form">
+                <form action="#">
+                    <div class="form-header">
+                        <div class="title">
+                            <h1>Perfil</h1>
+                        </div>
+                    </div>
+    
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label for="firstname">Primeiro Nome</label>
+                            <input id="firstname" type="text" name="firstname" placeholder="Digite seu primeiro nome" required>
+                            
+                        </div>
+                        <br>
+                        <div class="input-box">
+                            <label for="lastname">Sobrenome</label>
+                            <input id="lastname" type="text" name="lastname" placeholder="Digite seu sobrenome" required>
+                        </div>
+                        <br>
+                        <div class="input-box">
+                            <label for="email">E-mail</label>
+                            <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
+                        </div>
+    
+                        <div class="input-box">
+                            <label for="password">Mudar Senha</label>
+                            <input id="password" type="password" name="password" placeholder="Digite sua senha" required>
+                        </div>
+    
+    
+                        <div class="input-box">
+                            <label for="confirmPassword">Confirme sua Senha</label>
+                            <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Digite sua senha novamente" required>
+                        </div>
+    
+                    </div>
+    
+                    <div class="gender-inputs">
+                        <div class="gender-title">
+                            <h6>Gênero</h6>
+                        </div>
+    
+                        <div class="gender-group">
+                            <div class="gender-input">
+                                <input id="female" type="radio" name="gender">
+                                <label for="female">Feminino</label>
+                            </div>
+    
+                            <div class="gender-input">
+                                <input id="male" type="radio" name="gender">
+                                <label for="male">Masculino</label>
+                            </div>
+    
+                            <div class="gender-input">
+                                <input id="others" type="radio" name="gender">
+                                <label for="others">Outros</label>
+                            </div>
+    
+                            <div class="gender-input">
+                                <input id="none" type="radio" name="gender">
+                                <label for="none">Prefiro não dizer</label>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="continue-button">
+                        <button><a href="#">Confirmar Mudanças</a> </button>
+                    </div>
+                </form>
+                </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,148 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body, html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("../assets/img/login_background_2.png") no-repeat center;
+    background-size: 110%;
+}
+
+
+.MainContainer {
+    display: flex;
+    gap:10%;
+    margin-left :2.5%;
+    margin-right :2.5%;
+    margin-top: 1%;
+    z-index: 8;
+}
+
+.conteudo_materia{
+
+    margin-left: -5%;
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    height: 80vh;
+    z-index:10;
+}
+
+
+
+--------------------
+
+.conteudo{
+    display: flex;
+    position: relative;
+    
+}
+  
+.conteudo .sidebar{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    z-index:10;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+  
+.conteudo .sidebar h2{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+  
+.conteudo .sidebar ul li{
+    padding: 15px;
+    border-bottom: 1px solid #575757;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}    
+  
+.conteudo .sidebar ul li a{
+    color: #bdb8d7;
+    display: block;
+}
+  
+.disciplina-button:hover{
+    background-color: #4066f0;
+    cursor: pointer;
+}
+.disciplina-button:active{
+    cursor:progress;
+}
+      
+.conteudo .sidebar ul li:hover a{
+    color: #fff;
+}
+   
+
+---------------------------------
+  
+  
+.conteudo_2{
+    display: flex;
+    position: relative;
+    
+}
+  
+.conteudo_2 .sidebar_2{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    z-index:10;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+  
+.conteudo_2 .sidebar_2 h2{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+  
+.conteudo_2 .sidebar_2 ul li{
+    padding: 15px;
+    border-bottom: 1px solid #575757;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}    
+  
+.conteudo_2 .sidebar_2 ul li a{
+    color: #bdb8d7;
+    display: block;
+}
+  
+.conteudo_2 .sidebar_2 ul li:hover{
+    background-color: #4066f0;
+}
+      
+.conteudo_2 .sidebar_2 ul li:hover a{
+    color: #fff;
+}

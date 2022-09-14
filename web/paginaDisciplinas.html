@@ -3,8 +3,10 @@
     <head>
         <meta charset="UTF-8"/>
         <title>Chamada</title>
-        <link rel="stylesheet" type="text/css" href="styles/paginaChamada.css">
-        <script type="text/javascript" src="scripts/paginaChamada.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles/paginaDisciplinas.css">
+        <link rel="stylesheet" type="text/css" href="styles/header.css">
+
+        <script type="text/javascript" src="scripts/paginaDisciplinas.js"></script>
         <script src="https://kit.fontawesome.com/a43d9416c1.js" crossorigin="anonymous"></script>
         
     </head>
@@ -12,7 +14,7 @@
         <div class="header">
             <div class="left-header">
                 <div class="logo-container">
-                    <h1>MEU<span>SITE</span></h1>
+                    <h1><a  href = "/web/paginaChamada.html">MEU<span>SITE</span></a></h1>
                     <img src="assets/img/logo_chamada.png" class="picture_2"></img>
                 </div>
             </div>
@@ -32,13 +34,37 @@
                     <input class="fa-solid fa-caret-down" id="toggle" type="checkbox" checked>
                     </input>
                     <ul>
-                        <li><a href="https://www.youtube.com/watch?v=o-YBDTqX_ZU"><div class="dropdown-item-div">Configurações de Conta</div></a></li>
+                        <li><a href="/web/paginaConfig.html"><div class="dropdown-item-div">Configurações de Conta</div></a></li>
                         <li><a href="/web/login.html"><div class="dropdown-item-div" href= "/web/login.html">Sair</div></a></li>
 
                     </ul>
                 </nav>
                 </div>
             </div>
+        </div>
+        <div class="MainContainer">
+            
+            <div class="conteudo">
+                <div class="sidebar">
+                    
+                    <ul>
+                        <li onclick= "loadDiasDisciplina('Engenharia de Software')" class="disciplina-button"><a href="#">Engenharia de Software </a></li>
+                        <li onclick="loadDiasDisciplina('Analise de Sistemas F')" class="disciplina-button"><a href="#">Analise de Sistemas F</a></li>
+                        <li onclick="loadDiasDisciplina('Sistemas Operacionais A')" class="disciplina-button"><a href="#">Sistemas Operacionais A</a></li>
+                        <li onclick="loadDiasDisciplina('Redes A')" class="disciplina-button"><a href="#">Redes A</a></li>
+                        <li onclick="loadDiasDisciplina('Projeto Integrado B')" class="disciplina-button"><a href="#">Projeto Integrado B</a></li>
+                        <li onclick="loadDiasDisciplina('Cálculo D')" class="disciplina-button"><a href="#" >Cálculo D</a></li>
+                        <li onclick="loadDiasDisciplina('Interface Humana e Computador')" class="disciplina-button"><a href="#">Interface Humana e Computador</a></li>
+                    </ul> 
+                </div>
+                
+            </div>
+            
+            <div class="conteudo_materia" >
+                
+                
+            </div>
+
         </div>
 
     </body>
