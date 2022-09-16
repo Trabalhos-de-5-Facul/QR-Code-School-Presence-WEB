@@ -1,23 +1,10 @@
-'use strict'
+const inputElement = document.getElementById("fImage");
+if(inputElement){
+    inputElement.addEventListener("change", loadFile, false);
+}
 
-let photo = document.getElementById('imgPhoto');
-let file = document.getElementById('flImage');
-
-photo.addEventListener('click', () => {
-    file.click();
-});
-
-file.addEventListener('change', () => {
-
-    if (file.files.length <= 0) {
-        return;
-    }
-
-    let reader = new FileReader();
-
-    reader.onload = () => {
-        photo.src = reader.result;
-    }
-
-    reader.readAsDataURL(file.files[0]);
-});
+var loadFile = function(event) {
+    var fileList = document.getElementById('fImage').files;
+    document.getElementById('imgPhoto').src = URL.createObjectURL(event.target.files[0]);
+    //TODO do something with fileList.  
+ }
