@@ -10,13 +10,14 @@
         <div class="LoginContainer">
             <h1>Chamada Legal</h1>
             <h3 class="LoginContainer-h3">Bem Vindo!!<h3>
-            <form>
-                <input type="text" placeholder = "Usuário"><br>
-                <input type="password" placeholder = "Senha"><br>
+            <form id = "form" action="javascript:checkLogin()">
+                <input name = "login" type="text" placeholder = "Usuário" required><br>
+                <input name = "login" type="password" placeholder = "Senha" required><br>
+                <input type="submit" class="LoginButton" value="Login">
+                    
+
             </form>
-            <button onclick=Redirect_paginaChamada() class="LoginButton">
-                <p>Login</p>
-            </button>
+            
             <div class="ForgotPassword">
                 <p class="ForgotPassword-p">Esqueceu a senha?</p>
             </div>     
