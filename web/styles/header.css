@@ -182,6 +182,7 @@ nav ul{
   list-style: none;
   margin: 0;
   padding: 0;
+  position: absolute;
 }
 
 .c-dropdown__item {
@@ -229,13 +230,13 @@ nav ul{
   margin: 0;
   opacity: 0.25;
   padding: 5px;
-  position: absolute;
   top: calc(100% + 10px);
   transform-origin: top center;
   transform: translateX(-50%) rotateX(-90deg);
   transition: 125ms ease-in;
   width: rem(200);
   position: absolute;
+  display: block;
 }
 
 .c-dropdown__submenu::after {
