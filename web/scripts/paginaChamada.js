@@ -57,3 +57,71 @@ function RefreshQRCode(){
     showing = true;
     
 }
+
+async function LoadClass(){
+  let variable =  location.search.substring(1);
+  let v = variable.split(",")
+  console.log(v);
+  /* v[0] é cod aula;
+     v[1] é cod disc 
+     v[2] é cod professor
+     */
+  linkdisciplinas = document.getElementsByName("linkdisciplinas");
+  linkdisciplinas[0].href = linkdisciplinas[0].href + "?" + v[2];
+  //puxar as matriculas da disciplina
+  response = await fetch("http://54.94.139.104:3000/matricula");
+  let rd = await response.json();
+  const listmatr = [];
+  for (let i=0;i<rd.quantidade;i++){
+    if(rd.matricula[i].fk_Disciplina_COD_DISC == v[1]){
+      listmatr.push(rd.matricula[i]);
+    }
+ }
+ //puxar alunos e separar os que estão matriculados na disciplina
+ response = await fetch("http://54.94.139.104:3000/alunos");
+  rd = await response.json();
+  const listalunos = [];
+  for(let j = 0; j < listmatr.length; j++){
+    for (let i=0;i<rd.quantidade;i++){
+      if(rd.alunos[i].RA == listmatr[j].fk_Alunos_RA){
+        listalunos.push(rd.alunos[i]);
+      }
+    }
+  }
+  console.log(listalunos);
+  listalunos[1] = {
+    RA:10,
+    email_aluno
+    : 
+    "jao@gmail.com",
+    nome_aluno
+    : 
+    "joao",
+    senha_aluno
+    : 
+    "1234"}
+    listalunos[2] = {
+      RA:10,
+      email_aluno
+      : 
+      "jao@gmail.com",
+      nome_aluno
+      : 
+      "joao",
+      senha_aluno
+      : 
+      "1234"}
+  GenerateStudentList(listalunos)
+}
+
+function GenerateStudentList(listalunos){
+  let elementosalunos = []
+  let listas = document.getElementsByClassName("list");
+  for(let i=0; i<listalunos.length; i++){
+    elementosalunos.push(document.createElement("div"));
+    elementosalunos[i].className = "list-item";
+    elementosalunos[i].setAttribute("name",listalunos[i].RA);
+    elementosalunos[i].innerHTML = listalunos[i].nome_aluno;
+    listas[i%2].appendChild(elementosalunos[i])
+  }
+}
