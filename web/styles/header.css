@@ -217,10 +217,6 @@ nav ul{
   text-decoration: none;
 }
 
-.c-dropdown__submenu:hover {
-  text-decoration: underline;
-}
-  
 
 .c-dropdown__submenu {
   background-color: white;
@@ -237,6 +233,7 @@ nav ul{
   width: rem(200);
   position: absolute;
   display: block;
+  z-index: 12;
 }
 
 .c-dropdown__submenu::after {
@@ -252,12 +249,16 @@ nav ul{
   margin-bottom: rem(10);
   display: flex;
   justify-content: center;
-      
+  margin-top: 5px;
 }
 
 .c-dropdown__submenu-link {
   display: inline-block;
   text-decoration: none;
+}
+
+.c-dropdown__submenu-link-2:hover {
+  text-decoration: underline;
 }
 
 .c-dropdown__submenu-link:hover {
