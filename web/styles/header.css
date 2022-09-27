@@ -61,6 +61,13 @@
     font-family: 'Montserrat';
 }
 
+.navigation li a{
+  color: #101010;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 18px;
+  font-family: 'Montserrat';
+}
 .picture-container {
     height: 100%;
     float: left;

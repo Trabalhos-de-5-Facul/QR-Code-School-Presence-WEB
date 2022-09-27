@@ -56,7 +56,6 @@ function RefreshQRCode() {
 async function LoadClass() {
   let variable = location.search.substring(1);
   let v = variable.split(",");
-  console.log(v);
   /* v[0] é cod aula;
      v[1] é cod disc 
      v[2] é cod professor
@@ -83,7 +82,6 @@ async function LoadClass() {
       }
     }
   }
-  console.log(listalunos);
   listalunos[1] = {
     RA: 10,
     email_aluno: "jao@gmail.com",
@@ -97,6 +95,7 @@ async function LoadClass() {
     senha_aluno: "1234",
   };
   GenerateStudentList(listalunos);
+  GenerateMensagem(v[1],v[0],v[2]);
 }
 
 function GenerateStudentList(listalunos) {
@@ -109,4 +108,50 @@ function GenerateStudentList(listalunos) {
     elementosalunos[i].innerHTML = listalunos[i].nome_aluno;
     listas[i % 2].appendChild(elementosalunos[i]);
   }
+}
+
+async function GenerateMensagem(coddisc,codaula,codprof){
+  let response = await fetch(url.professores);
+  let professorlist = await response.json();
+  let professornome;
+  for (let i=0; i<professorlist.quantidade;i++){
+    if(professorlist.professores[i].COD_PROF == codprof){
+      professornome = professorlist.professores[i].nome_prof;
+      break;
+    }
+  }
+  //colocando o nome do professor no bem vindo
+  let mensagembv = document.getElementsByName("Welcome");
+  mensagembv[0].innerHTML = "Bem Vindo(a), " + professornome; 
+  //colocando o nome da disciplina no bem vindo
+  response = await fetch(url.disciplinas);
+  let disclist = await response.json();
+  let discnome;
+  for(let i = 0; i < disclist.quantidade;i++){
+    if(disclist.disciplinas[i].COD_DISC == coddisc){
+      discnome = disclist.disciplinas[i].nome_disc;
+      break;
+    }
+  }
+  let mensagemdisc = document.getElementsByName("CurrentClass");
+  mensagemdisc[0].innerHTML = discnome;
+
+  //buscando as informações da aula
+  response = await fetch(url.aulas + coddisc);
+  let aulalist = await response.json();
+  let aula;
+  for(let i=0; i<aulalist.quantidade; i++){
+    if(aulalist.aulas[i].COD_AULA == codaula){
+      aula = aulalist.aulas[i];
+      break;
+    }
+  }
+  let diaini = new Date(aula.inicio_aula);
+  let mes = diaini.getUTCMonth() + 1;
+  let diaaula = document.getElementsByName("ClassDate");
+  diaaula[0].innerHTML = ("0" + diaini.getUTCDate()).slice(-2) + " / " + ("0" + mes).slice(-2);
+  let diafim = new Date(aula.fim_aula);
+  let horaaula = document.getElementsByName("ClassTime");
+  horaaula[0].innerHTML = ("0" + diaini.getUTCHours()).slice(-2) + ":" + ("0" + diaini.getUTCMinutes()).slice(-2) + 
+                    " a "+("0" + diafim.getUTCHours()).slice(-2) + ":" + ("0" + diafim.getUTCMinutes()).slice(-2) ;
 }

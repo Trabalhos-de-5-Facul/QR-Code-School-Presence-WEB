@@ -50,12 +50,12 @@ body, html{
   
 .conteudo .sidebar{
     background-color: white;
-    width: 100%;
+    width: 150px;
     height: 100%;
     z-index:10;
     display: -ms-flexbox;
     display: -webkit-flex;
-    display: flex;
+    display:inline-block;
 
     -ms-flex-align: center;
     -webkit-align-items: center;
@@ -76,6 +76,7 @@ body, html{
     border-bottom: 1px solid #575757;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     border-top: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
 }    
   
 .conteudo .sidebar ul li a{
@@ -146,4 +147,54 @@ body, html{
       
 .conteudo_2 .sidebar_2 ul li:hover a{
     color: #fff;
+}
+
+
+.btn-styled{
+    min-width: 130px;
+	position: relative;
+	display: inline-block;
+    border: none;
+	text-align: center;
+	text-transform: uppercase; 
+
+	padding: 15px;
+	margin: 30px 25px;
+
+	font-weight: 600;
+	color: white;
+    border-radius: 10px;
+	transition: 0.5s;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.btn-styled{ background-color: #4066f0; }
+
+.btn-styled:before {
+	position: absolute;
+	content:"";
+	border-top: 5px solid lighten(#4066f0, 5%);
+	border-left: 5px solid lighten(#4066f0, 5%);	
+	border-right: 5px solid darken(#4066f0, 5%);
+	border-bottom: 5px solid darken(#4066f0, 5%);
+
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;	
+
+  transition: 0.5s;
+
+}
+
+.btn-styled:hover {
+	color: #4066f0;
+	cursor: pointer;
+}
+
+.div-disciplina{
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 40px;
 }
