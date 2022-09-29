@@ -6,11 +6,12 @@
         <link rel="stylesheet" type="text/css" href="styles/paginaConfig.css">
         <link rel="stylesheet" type="text/css" href="styles/header.css">
         <script type="text/javascript" src="scripts/url.js"></script>
+        <script type="text/javascript" src="scripts/header.js"></script>
         <script type="text/javascript" src="scripts/paginaConfig.js"></script>
         <script src="https://kit.fontawesome.com/a43d9416c1.js" crossorigin="anonymous"></script>
         
     </head>
-    <body>
+    <body onload="LoadPage()">
         <div class="header">
             <div class="left-header">
                 <div class="logo-container">
@@ -20,7 +21,7 @@
             </div>
             <div class="right-header">
                 <ul class="navigation">
-                    <li><a href="/web/paginaDisciplinas.html">Disciplinas</a></li>
+                    <li><a name="linkdisciplinas" href="/web/paginaDisciplinas.html">Disciplinas</a></li>
                 </ul>
                 <div class="picture-container">
                     <img src="assets/img/xastre.png" class="picture"></img>
@@ -67,24 +68,24 @@
     
                     <div class="input-group">
                         <div class="input-box">
-                            <label for="firstname">Primeiro Nome</label>
-                            <input id="firstname" type="text" name="firstname" placeholder="Digite seu primeiro nome">
+                            <label for="firstname">Nome Completo</label>
+                            <input id="firstname" readonly type="text" name="firstname" placeholder="Digite seu primeiro nome">
                             
                         </div>
-                        <br>
-                        <div class="input-box">
-                            <label for="lastname">Sobrenome</label>
-                            <input id="lastname" type="text" name="lastname" placeholder="Digite seu sobrenome">
-                        </div>
-                        <br>
+        
                         <div class="input-box">
                             <label for="email">E-mail</label>
-                            <input id="email" type="email" name="email" placeholder="Digite seu e-mail">
+                            <input id="email" readonly type="email" name="email" placeholder="Digite seu e-mail">
+                        </div>
+
+                        <div class="input-box">
+                            <label for="password">Senha Atual</label>
+                            <input id="password" type="password" name="password" placeholder="Digite sua senha atual">
                         </div>
     
                         <div class="input-box">
-                            <label for="password">Mudar Senha</label>
-                            <input id="password" type="password" name="password" placeholder="Digite sua senha">
+                            <label for="newpassword">Mudar Senha</label>
+                            <input id="newpassword" type="password" name="newpassword" placeholder="Digite sua nova senha">
                         </div>
     
     

@@ -54,14 +54,16 @@ function RefreshQRCode() {
 }
 
 async function LoadClass() {
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  if(ca[0].substring(6) == "true"){
   let variable = location.search.substring(1);
   let v = variable.split(",");
   /* v[0] é cod aula;
      v[1] é cod disc 
      v[2] é cod professor
      */
-  linkdisciplinas = document.getElementsByName("linkdisciplinas");
-  linkdisciplinas[0].href = linkdisciplinas[0].href + "?" + v[2];
+  LoadHeader(v[2]);
   //puxar as matriculas da disciplina
   response = await fetch(url.matricula);
   let rd = await response.json();
@@ -97,6 +99,7 @@ async function LoadClass() {
   GenerateStudentList(listalunos);
   GenerateMensagem(v[1],v[0],v[2]);
 }
+}
 
 function GenerateStudentList(listalunos) {
   let elementosalunos = [];
@@ -117,12 +120,13 @@ async function GenerateMensagem(coddisc,codaula,codprof){
   for (let i=0; i<professorlist.quantidade;i++){
     if(professorlist.professores[i].COD_PROF == codprof){
       professornome = professorlist.professores[i].nome_prof;
+
       break;
     }
   }
   //colocando o nome do professor no bem vindo
   let mensagembv = document.getElementsByName("Welcome");
-  mensagembv[0].innerHTML = "Bem Vindo(a), " + professornome; 
+  mensagembv[0].innerHTML = "Bem Vindo(a), " + professornome;
   //colocando o nome da disciplina no bem vindo
   response = await fetch(url.disciplinas);
   let disclist = await response.json();

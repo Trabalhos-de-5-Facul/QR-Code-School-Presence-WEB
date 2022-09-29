@@ -4,6 +4,9 @@ div_disciplina.id = "div-disciplina";
 listadisc = [];
 var v;
 async function LoadPage(){
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+     if(ca[0].substring(6) == "true"){
     let variable =  location.search.substring(1);
     v = variable.split(",");
     /* v[0] é cod professor
@@ -28,7 +31,7 @@ async function LoadPage(){
     let sidemenu = document.getElementById("listadisc");
     for (let i=0;i<listadisc.length;i++){
         discbuttons.push(document.createElement("li"));
-        discbuttons[i].setAttribute("onclick","loadDiasDisciplina(" + i + ")");
+        discbuttons[i].setAttribute("onclick","LoadDiasDisciplina(" + i + ")");
         discbuttons[i].setAttribute("class","disciplina-button");
         let a = document.createElement("a");
         a.href = "#";
@@ -36,10 +39,13 @@ async function LoadPage(){
         discbuttons[i].appendChild(a);
         sidemenu.appendChild(discbuttons[i]);
     }
+    LoadHeader(v[0]);
+    }
     return;
 }
-//carrega as informações da disciplinas pressionada, onde discnum é o número dela na listadisc
-async function loadDiasDisciplina(discnum){
+
+
+async function LoadDiasDisciplina(discnum){
     div_disciplina.innerHTML = listadisc[discnum].nome_disc; //Colocar o HTML de como tem que ficar o container da matéria
     //Gerando lista de aulas da disciplina
     let response = await fetch(url.aulas + listadisc[discnum].COD_DISC,{

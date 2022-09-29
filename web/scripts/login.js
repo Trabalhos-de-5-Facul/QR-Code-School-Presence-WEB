@@ -1,3 +1,8 @@
+
+function LoadPage(){
+  document.cookie = "token=false";
+}
+
 async function checkLogin() {
   let logindata = document.getElementsByName("login");
   var response = await fetch(
@@ -11,6 +16,7 @@ async function checkLogin() {
     alert(data.erro);
     return false;
   } else {
+    document.cookie = "token=true";
     //puxar as aulas
     response = await fetch(url.aulas);
     let rd = await response.json();
