@@ -1,23 +1,28 @@
 //declaração de variaveis
 var showing = false;
 var interval;
-
+var v = [];
+var aula;
 function removeElement(id) {
   var elem = document.getElementById(id);
   return elem.parentNode.removeChild(elem);
 }
 function generateQRCode() {
   if (!showing) {
+    console.log(aula);
     let D = new Date();
     new QRCode(
       document.getElementById("qrcode"),
       JSON.stringify({
-        COD_AULA: 312415,
-        inicio_aula: 1687513,
-        fim_aula: 124151251,
+        COD_AULA: aula.COD_AULA,
+        inicio_aula: aula.inicio_aula,
+        fim_aula: aula.fim_aula,
+        codprof: aula.fk_Professores_COD_PROF,
+        COD_DISC: aula.fk_Disciplina_COD_DISC,
         timestamp_atual: D.getTime(),
       })
     );
+    
     showing = true;
     // Atualiza o qrcode a cada 10 segundos
     interval = setInterval(RefreshQRCode, 10000);
@@ -41,13 +46,17 @@ function RefreshQRCode() {
   showing = false;
   let D = new Date();
   let t = D.getTime();
-  console.log(t);
 
   new QRCode(
     document.getElementById("qrcode"),
-    "{COD_AULA: 312451,inicio_aula: 314145, fim_aula: 2153413, timestamp_atual:" +
-      t +
-      "}"
+    JSON.stringify({
+      COD_AULA: aula.COD_AULA,
+      inicio_aula: aula.inicio_aula,
+      fim_aula: aula.fim_aula,
+      codprof: aula.fk_Professores_COD_PROF,
+      COD_DISC: aula.fk_Disciplina_COD_DISC,
+      timestamp_atual: D.getTime(),
+    })
   );
   generatetime = t;
   showing = true;
@@ -56,13 +65,9 @@ function RefreshQRCode() {
 async function LoadClass() {
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
-  if(ca[0].substring(6) == "true"){
-  let variable = location.search.substring(1);
-  let v = variable.split(",");
-  /* v[0] é cod aula;
-     v[1] é cod disc 
-     v[2] é cod professor
-     */
+  v[0] = ca[1].substring(9);
+  v[1] = ca[2].substring(9);
+  v[2] = ca[3].substring(9);
   LoadHeader(v[2]);
   //puxar as matriculas da disciplina
   response = await fetch(url.matricula);
@@ -99,7 +104,7 @@ async function LoadClass() {
   GenerateStudentList(listalunos);
   GenerateMensagem(v[1],v[0],v[2]);
 }
-}
+
 
 function GenerateStudentList(listalunos) {
   let elementosalunos = [];
@@ -143,7 +148,6 @@ async function GenerateMensagem(coddisc,codaula,codprof){
   //buscando as informações da aula
   response = await fetch(url.aulas + coddisc);
   let aulalist = await response.json();
-  let aula;
   for(let i=0; i<aulalist.quantidade; i++){
     if(aulalist.aulas[i].COD_AULA == codaula){
       aula = aulalist.aulas[i];

@@ -16,7 +16,7 @@ async function checkLogin() {
     alert(data.erro);
     return false;
   } else {
-    document.cookie = "token=true";
+    
     //puxar as aulas
     response = await fetch(url.aulas);
     let rd = await response.json();
@@ -27,14 +27,15 @@ async function checkLogin() {
       }
     }
     console.log(listaulas[0]);
-    window.location.href =
-      "paginaChamada.html" +
-      "?" +
-      listaulas[0].COD_AULA +
-      "," +
-      listaulas[0].fk_Disciplina_COD_DISC +
-      "," +
-      data.cod;
+    document.cookie ="token="+"";
+    document.cookie = "codaula=" + ""; 
+    document.cookie = "coddisc=" + "";
+    document.cookie = "codprof=" + "";
+    document.cookie = "token=true";
+    document.cookie = "codaula=" + listaulas[0].COD_AULA; 
+    document.cookie = "coddisc=" + listaulas[0].fk_Disciplina_COD_DISC ;
+    document.cookie = "codprof=" +data.cod;
+    window.location.href ="paginaChamada.html";
     return true;
   }
 }

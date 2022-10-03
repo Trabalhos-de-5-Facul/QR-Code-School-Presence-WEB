@@ -6,9 +6,6 @@ async function LoadHeader(cod){
     let headerinfo = document.getElementsByClassName("info");
     headerinfo[0].innerHTML = professordata.professor[0].nome_prof;
     headerinfo[1].innerHTML = professordata.professor[0].COD_PROF;
-    let conflink = document.getElementsByClassName("c-dropdown__submenu-link");
-    conflink[0].href = conflink[0].href + "?" + cod;
-    let disclink = document.getElementsByName("linkdisciplinas");
-    disclink[0].href = disclink[0].href + "?" + cod;
+    
     return;
 }

@@ -13,14 +13,13 @@ var loadFile = function (event) {
 async function LoadPage(){
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
-  if(ca[0].substring(6) == "true"){
-  let variable =  location.search.substring(1);
-  v = variable.split(",");
+  let v = [];
+  v[0] = ca[2].substring(9)
   LoadHeader(v[0]);
   let response = await fetch(url.professores + v[0]);
   let professordata = await response.json();
   console.log(professordata);
   document.getElementById("firstname").placeholder = professordata.professor[0].nome_prof;
   document.getElementById("email").placeholder = professordata.professor[0].email_prof;
-  }
+  
 }

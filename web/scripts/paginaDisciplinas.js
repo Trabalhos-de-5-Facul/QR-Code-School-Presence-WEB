@@ -2,13 +2,12 @@ const div_disciplina = document.createElement("div");
 div_disciplina.className = "div-disciplina";
 div_disciplina.id = "div-disciplina";
 listadisc = [];
-var v;
+var v = [];
 async function LoadPage(){
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
-     if(ca[0].substring(6) == "true"){
-    let variable =  location.search.substring(1);
-    v = variable.split(",");
+    v[0] = ca[2].substring(9);
+    console.log(v[0]);
     /* v[0] é cod professor
     */
    //puxa as relações de ministra das quais o professor participa
@@ -40,7 +39,7 @@ async function LoadPage(){
         sidemenu.appendChild(discbuttons[i]);
     }
     LoadHeader(v[0]);
-    }
+    
     return;
 }
 
@@ -80,6 +79,9 @@ async function LoadDiasDisciplina(discnum){
 
 //função de mudar página para a página de chamada
 function ChangePage(COD_AULA, COD_DISC, cod){
-    window.location.href = "paginaChamada.html" + "?" + COD_AULA + "," + COD_DISC + "," + cod;
+    document.cookie = "codaula=" + COD_AULA; 
+    document.cookie = "coddisc=" + COD_DISC ;
+    document.cookie = "codprof=" + cod;
+    window.location.href = "paginaChamada.html";
     return;
 }
