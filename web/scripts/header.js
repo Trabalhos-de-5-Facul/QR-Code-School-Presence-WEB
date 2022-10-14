@@ -4,6 +4,7 @@ async function LoadHeader(cod){
     let response = await fetch(url.professores + cod);
     let professordata = await response.json();
     let headerinfo = document.getElementsByClassName("info");
+    console.log(cod)
     headerinfo[0].innerHTML = professordata.professor[0].nome_prof;
     headerinfo[1].innerHTML = professordata.professor[0].COD_PROF;
     

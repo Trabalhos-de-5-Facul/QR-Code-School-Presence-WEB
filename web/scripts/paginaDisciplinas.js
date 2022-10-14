@@ -6,7 +6,8 @@ var v = [];
 async function LoadPage(){
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
-    v[0] = ca[2].substring(9);
+    console.log(ca)
+    v[0] = ca[3].substring(9);
     console.log(v[0]);
     /* v[0] é cod professor
     */
@@ -79,6 +80,11 @@ async function LoadDiasDisciplina(discnum){
 
 //função de mudar página para a página de chamada
 function ChangePage(COD_AULA, COD_DISC, cod){
+    document.cookie ="token="+"";
+    document.cookie = "codaula=" + ""; 
+    document.cookie = "coddisc=" + "";
+    document.cookie = "codprof=" + "";
+    document.cookie = "token=" + "true";
     document.cookie = "codaula=" + COD_AULA; 
     document.cookie = "coddisc=" + COD_DISC ;
     document.cookie = "codprof=" + cod;
