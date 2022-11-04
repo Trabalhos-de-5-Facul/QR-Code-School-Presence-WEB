@@ -34,7 +34,19 @@ body, html{
     align-items: center;
     flex-direction: column;
 }
-.list-item{
+.list-item-true{
+    width:96%;
+    height : 4vh;
+    line-height : 4vh;
+    border-radius: 2px;
+    z-index:10;
+    margin:1.2%;
+    text-align: left;
+    background-color: #0e89b3;
+    font-family: 'Montserrat';
+}
+
+.list-item-false{
     width:96%;
     height : 4vh;
     line-height : 4vh;

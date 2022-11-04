@@ -3,6 +3,29 @@ var showing = false;
 var interval;
 var v = [];
 var aula;
+try{
+  const ws = new WebSocket("ws://54.94.139.104:3000/");
+  ws.onmessage = async (event)=>{
+    let vet = document.getElementsByName(event.data.toString());
+    let response = await fetch(url.frequenta);
+    let frequencialist = await response.json();
+    for(let i=0;i<frequencialist.quantidade;i++){
+      if(v[0] == frequencialist.frequencias[i].fk_Aula_COD_AULA && event.data == frequencialist.frequencias[i].fk_Alunos_RA){
+        
+        if(frequencialist.frequencias[i].presenca_aluno.data[0] == 1){
+          vet[0].className = "list-item-true";
+        }
+        else{
+          vet[0].className = "list-item-false";
+        }
+      }
+    }
+    
+  }
+}
+catch(e){
+  console.log(e);
+}
 function removeElement(id) {
   var elem = document.getElementById(id);
   return elem.parentNode.removeChild(elem);
@@ -65,6 +88,9 @@ function RefreshQRCode() {
 async function LoadClass() {
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
+  //v[0] é codaula
+  //v[1] é coddisc
+  //v[2] é codprof
   v[0] = ca[1].substring(9);
   v[1] = ca[2].substring(9);
   v[2] = ca[3].substring(9);
@@ -89,30 +115,33 @@ async function LoadClass() {
       }
     }
   }
-  listalunos[1] = {
-    RA: 10,
-    email_aluno: "jao@gmail.com",
-    nome_aluno: "joao",
-    senha_aluno: "1234",
-  };
-  listalunos[2] = {
-    RA: 10,
-    email_aluno: "jao@gmail.com",
-    nome_aluno: "joao",
-    senha_aluno: "1234",
-  };
+  
   GenerateStudentList(listalunos);
   GenerateMensagem(v[1],v[0],v[2]);
 }
 
 
-function GenerateStudentList(listalunos) {
+async function  GenerateStudentList(listalunos) {
   let elementosalunos = [];
   let listas = document.getElementsByClassName("list");
+  let response = await fetch(url.frequenta);
+  let frequencialist = await response.json();
   for (let i = 0; i < listalunos.length; i++) {
     elementosalunos.push(document.createElement("div"));
-    elementosalunos[i].className = "list-item";
+    
     elementosalunos[i].setAttribute("name", listalunos[i].RA);
+    //verificar a frequencia do aluno
+    for (let j = 0; j<frequencialist.quantidade;j++){
+      if(v[0] == frequencialist.frequencias[j].fk_Aula_COD_AULA && listalunos[i].RA == frequencialist.frequencias[j].fk_Alunos_RA){
+        if(frequencialist.frequencias[j].presenca_aluno.data[0] == 1){
+        elementosalunos[i].className = "list-item-true";
+      }
+      else{
+        elementosalunos[i].className = "list-item-false";
+      }
+        //elementoalunos[i].style.backgroundColor = "green";
+      }
+    }
     elementosalunos[i].innerHTML = listalunos[i].nome_aluno;
     listas[i % 2].appendChild(elementosalunos[i]);
   }
@@ -162,4 +191,13 @@ async function GenerateMensagem(coddisc,codaula,codprof){
   let horaaula = document.getElementsByName("ClassTime");
   horaaula[0].innerHTML = ("0" + diaini.getUTCHours()).slice(-2) + ":" + ("0" + diaini.getUTCMinutes()).slice(-2) + 
                     " a "+("0" + diafim.getUTCHours()).slice(-2) + ":" + ("0" + diafim.getUTCMinutes()).slice(-2) ;
+}
+
+function disconnectWS(){
+  try{
+  webSocket.close();
+  }
+  catch(e){
+    console.log(e);
+  }
 }
