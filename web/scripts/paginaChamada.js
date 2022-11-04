@@ -13,9 +13,11 @@ try{
       if(v[0] == frequencialist.frequencias[i].fk_Aula_COD_AULA && event.data == frequencialist.frequencias[i].fk_Alunos_RA){
         
         if(frequencialist.frequencias[i].presenca_aluno.data[0] == 1){
+          vet[0].setAttribute("onclick","changeFreq("+event.data +","+0+")");
           vet[0].className = "list-item-true";
         }
         else{
+          vet[0].setAttribute("onclick","changeFreq("+event.data +","+1+")");
           vet[0].className = "list-item-false";
         }
       }
@@ -133,10 +135,13 @@ async function  GenerateStudentList(listalunos) {
     //verificar a frequencia do aluno
     for (let j = 0; j<frequencialist.quantidade;j++){
       if(v[0] == frequencialist.frequencias[j].fk_Aula_COD_AULA && listalunos[i].RA == frequencialist.frequencias[j].fk_Alunos_RA){
-        if(frequencialist.frequencias[j].presenca_aluno.data[0] == 1){
+        if(frequencialist.frequencias[j].presenca_aluno.data[0] == 1){       
+        elementosalunos[i].setAttribute("onclick","changeFreq("+listalunos[i].RA +","+0+")");
         elementosalunos[i].className = "list-item-true";
       }
       else{
+        
+        elementosalunos[i].setAttribute("onclick","changeFreq("+listalunos[i].RA +","+1+")");
         elementosalunos[i].className = "list-item-false";
       }
         //elementoalunos[i].style.backgroundColor = "green";
@@ -200,4 +205,20 @@ function disconnectWS(){
   catch(e){
     console.log(e);
   }
+}
+
+async function changeFreq(codaluno,num){
+  
+  response = await fetch(url.frequenta, {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      "ra_aluno": codaluno,
+      "cod_aula": v[0],
+      "presenca": num
+     }),
+    });
 }

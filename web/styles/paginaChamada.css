@@ -44,6 +44,8 @@ body, html{
     text-align: left;
     background-color: #0e89b3;
     font-family: 'Montserrat';
+    cursor: pointer;
+    
 }
 
 .list-item-false{
@@ -56,6 +58,7 @@ body, html{
     text-align: left;
     background-color: #ADD8E6;
     font-family: 'Montserrat';
+    cursor: pointer;
 }
 
 .MainContainer {
