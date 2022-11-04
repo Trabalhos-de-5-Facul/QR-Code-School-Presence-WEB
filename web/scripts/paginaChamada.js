@@ -70,7 +70,6 @@ function RefreshQRCode() {
   }
   showing = false;
   let D = new Date();
-  let t = D.getTime();
 
   new QRCode(
     document.getElementById("qrcode"),
