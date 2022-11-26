@@ -3,6 +3,8 @@ var showing = false;
 var interval;
 var v = [];
 var aula;
+var discnome;
+
 try{
   const ws = new WebSocket("ws://54.94.139.104:3000/");
   ws.onmessage = async (event)=>{
@@ -32,18 +34,20 @@ function removeElement(id) {
   var elem = document.getElementById(id);
   return elem.parentNode.removeChild(elem);
 }
-function generateQRCode() {
+async function generateQRCode() {
   if (!showing) {
-    let D = new Date();
+    let response = await fetch(url.misc + "timestamp");
+    let js = await response.json();
+    let D = js.timestamp[0].TIMESTAMP;
     new QRCode(
       document.getElementById("qrcode"),
       JSON.stringify({
         COD_AULA: aula.COD_AULA,
         inicio_aula: aula.inicio_aula,
         fim_aula: aula.fim_aula,
-        codprof: aula.fk_Professores_COD_PROF,
+        COD_PROF: aula.fk_Professores_COD_PROF,
         COD_DISC: aula.fk_Disciplina_COD_DISC,
-        timestamp_atual: D.getTime(),
+        TIMESTAMP: D,
       })
     );
     
@@ -62,26 +66,27 @@ function generateQRCode() {
   }
 }
 
-function RefreshQRCode() {
+async function RefreshQRCode() {
   var filhos = document.getElementById("qrcode").childNodes;
   for (let i = 0; i < 2; i++) {
     document.getElementById("qrcode").removeChild(filhos[0]);
   }
   showing = false;
   let D = new Date();
-
+  let response = await fetch(url.misc + "timestamp");
+  let js = await response.json();
+  D = js.timestamp[0].TIMESTAMP;  
   new QRCode(
     document.getElementById("qrcode"),
     JSON.stringify({
       COD_AULA: aula.COD_AULA,
       inicio_aula: aula.inicio_aula,
       fim_aula: aula.fim_aula,
-      codprof: aula.fk_Professores_COD_PROF,
+      COD_PROF: aula.fk_Professores_COD_PROF,
       COD_DISC: aula.fk_Disciplina_COD_DISC,
-      timestamp_atual: D.getTime(),
+      TIMESTAMP: D,
     })
   );
-  generatetime = t;
   showing = true;
 }
 
