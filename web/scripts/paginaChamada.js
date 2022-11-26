@@ -12,7 +12,7 @@ try{
     for(let i=0;i<frequencialist.quantidade;i++){
       if(v[0] == frequencialist.frequencias[i].fk_Aula_COD_AULA && event.data == frequencialist.frequencias[i].fk_Alunos_RA){
         
-        if(frequencialist.frequencias[i].presenca_aluno.data[0] == 1){
+        if(frequencialist.frequencias[i].presenca_aluno == 1){
           vet[0].setAttribute("onclick","changeFreq("+event.data +","+0+")");
           vet[0].className = "list-item-true";
         }
@@ -34,7 +34,6 @@ function removeElement(id) {
 }
 function generateQRCode() {
   if (!showing) {
-    console.log(aula);
     let D = new Date();
     new QRCode(
       document.getElementById("qrcode"),
@@ -134,7 +133,7 @@ async function  GenerateStudentList(listalunos) {
     //verificar a frequencia do aluno
     for (let j = 0; j<frequencialist.quantidade;j++){
       if(v[0] == frequencialist.frequencias[j].fk_Aula_COD_AULA && listalunos[i].RA == frequencialist.frequencias[j].fk_Alunos_RA){
-        if(frequencialist.frequencias[j].presenca_aluno.data[0] == 1){       
+        if(frequencialist.frequencias[j].presenca_aluno == 1){       
         elementosalunos[i].setAttribute("onclick","changeFreq("+listalunos[i].RA +","+0+")");
         elementosalunos[i].className = "list-item-true";
       }
@@ -143,7 +142,6 @@ async function  GenerateStudentList(listalunos) {
         elementosalunos[i].setAttribute("onclick","changeFreq("+listalunos[i].RA +","+1+")");
         elementosalunos[i].className = "list-item-false";
       }
-        //elementoalunos[i].style.backgroundColor = "green";
       }
     }
     elementosalunos[i].innerHTML = listalunos[i].nome_aluno;
