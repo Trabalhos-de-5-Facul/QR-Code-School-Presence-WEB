@@ -27,13 +27,20 @@ async function checkLogin() {
       }
     }
     let aulaselect = null;
-    let d = new Date();
+    response = await fetch(url.misc + "timestamp/");
+    let date = await response.json();
+    let d = date.timestamp[0].TIMESTAMP; 
     listaulas.forEach(element => {
-      if (element.inicio_aula < d.getTime() && d.getTime() < element.fim_aula){
+      console.log(element.inicio_aula);
+      console.log(element.fim_aula);
+      console.log(d);
+      if (element.inicio_aula < d && d < element.fim_aula){
+        console.log("oi");
         aulaselect = element;
       }
-      
+      console.log(aulaselect);
     });
+    
     if(aulaselect != null){
     console.log(listaulas[0]);
     document.cookie ="token="+"";
