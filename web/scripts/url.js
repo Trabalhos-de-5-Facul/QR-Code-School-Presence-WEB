@@ -8,4 +8,5 @@ const url = {
   matricula: aws + "matricula/",
   ministra: aws + "ministra/",
   frequenta: aws + "frequenta/",
+  misc: aws+ "misc/",
 };
